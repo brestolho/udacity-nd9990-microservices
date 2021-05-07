@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+  - 13
+
+branches:
+  only:
+    - master
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t udagram-feed ./udagram-feed
+  - docker tag udagram-feed brestolho/udagram-feed:latest
+  - docker build -t udagram-users ./udagram-users
+  - docker tag udagram-users brestolho/udagram-users:latest
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker tag udagram-frontend brestolho/udagram-frontend:latest
+  - docker build -t udagram-reverse-proxy ./udagram-reverse-proxy
+  - docker tag udagram-reverse-proxy brestolho/udagram-reverse-proxy:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker push brestolho/udagram-feed
+  - docker push brestolho/udagram-users
+  - docker push brestolho/udagram-frontend
+  - docker push brestolho/udagram-reverse-proxy
