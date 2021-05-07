@@ -19,10 +19,10 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t udagram-feed ./udagram-feed
-  - docker tag udagram-feed brestolho/udagram-feed:latest
-  - docker build -t udagram-users ./udagram-users
-  - docker tag udagram-users brestolho/udagram-users:latest
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker tag udagram-api-feed brestolho/udagram-api-feed:latest
+  - docker build -t udagram-api-users ./udagram-api-users
+  - docker tag udagram-api-users brestolho/udagram-api-users:latest
   - docker build -t udagram-frontend ./udagram-frontend
   - docker tag udagram-frontend brestolho/udagram-frontend:latest
   - docker build -t udagram-reverse-proxy ./udagram-reverse-proxy
