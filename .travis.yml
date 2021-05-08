@@ -4,7 +4,7 @@ node_js:
 
 branches:
   only:
-    - master
+    - none
 
 services:
   - docker
@@ -30,7 +30,7 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-  - docker push brestolho/udagram-feed
-  - docker push brestolho/udagram-users
+  - docker push brestolho/udagram-api-feed
+  - docker push brestolho/udagram-api-users
   - docker push brestolho/udagram-frontend
   - docker push brestolho/udagram-reverse-proxy
