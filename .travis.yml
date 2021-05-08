@@ -4,7 +4,7 @@ node_js:
 
 branches:
   only:
-    - none
+    - master
 
 services:
   - docker
@@ -19,18 +19,18 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t udagram-api-feed ./udagram-api-feed
-  - docker tag udagram-api-feed brestolho/udagram-api-feed:latest
-  - docker build -t udagram-api-users ./udagram-api-users
-  - docker tag udagram-api-users brestolho/udagram-api-users:latest
-  - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend brestolho/udagram-frontend:latest
-  - docker build -t udagram-reverse-proxy ./udagram-reverse-proxy
-  - docker tag udagram-reverse-proxy brestolho/udagram-reverse-proxy:latest
+  # - docker build -t udagram-api-feed ./udagram-api-feed
+  # - docker tag udagram-api-feed brestolho/udagram-api-feed:latest
+  # - docker build -t udagram-api-users ./udagram-api-users
+  # - docker tag udagram-api-users brestolho/udagram-api-users:latest
+  # - docker build -t udagram-frontend ./udagram-frontend
+  # - docker tag udagram-frontend brestolho/udagram-frontend:latest
+  # - docker build -t udagram-reverse-proxy ./udagram-reverse-proxy
+  # - docker tag udagram-reverse-proxy brestolho/udagram-reverse-proxy:latest
 
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-  - docker push brestolho/udagram-api-feed
-  - docker push brestolho/udagram-api-users
-  - docker push brestolho/udagram-frontend
-  - docker push brestolho/udagram-reverse-proxy
+  # - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  # - docker push brestolho/udagram-api-feed
+  # - docker push brestolho/udagram-api-users
+  # - docker push brestolho/udagram-frontend
+  # - docker push brestolho/udagram-reverse-proxy
