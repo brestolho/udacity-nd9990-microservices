@@ -1,0 +1,18 @@
+version: "3"
+services:
+  revers-eproxy:
+    build:
+      context: ./udagram-reverse-proxy
+    image: brestolho/udagram-reverse-proxy
+  api_user:
+    build:
+      context: ./udagram-api-user
+    image: brestolho/udagram-api-user
+  api_feed:
+    build:
+      context: ./udagram-api-feed
+    image: brestolho/udagram-api-feed
+  frontend:
+    build:
+      context: ./udagram-frontend
+    image: brestolho/udagram-frontend
