@@ -9,5 +9,5 @@ data:
   JWT_SECRET: hello
   POSTGRES_DB: postgres
   POSTGRES_HOST: proj4-db.cvihx8gdgf9a.eu-west-1.rds.amazonaws.com
-  URL: http://localhost:8100
+  URL: http://aa9fac9f77df04c9e94d47c39fd9de0d-1385422688.eu-west-1.elb.amazonaws.com:8100
 # you will replace URL with the URL of the frontend once you deploy it to AWS.
